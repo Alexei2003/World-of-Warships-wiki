@@ -10,6 +10,8 @@
 
         public const string SERVER_IP = "192.168.148.103";
 
+        public const string SUCCESS = "SUCCESS";
+
         public enum GeneralServerActions
         {
             None,Start,Finish,

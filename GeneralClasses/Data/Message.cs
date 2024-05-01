@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace GeneralClasses.Data
 {
-    public abstract class Message
+    public class Message
     {
         public GeneralConstant.GeneralServerActions Action { get; set; } = GeneralConstant.GeneralServerActions.None;
 

@@ -1,6 +1,6 @@
 ﻿namespace GeneralClasses.Data
 {
-    public class StartMessage : Message
+    public class FirstMessage : Message
     {
         
     }

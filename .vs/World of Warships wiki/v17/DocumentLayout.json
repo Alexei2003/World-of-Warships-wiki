@@ -1,30 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\",
+  "WorkspaceRootPath": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A97C4FCB-6835-4F7D-809A-53C2BA54353A}|RabbitMQ\\RabbitMQ.csproj|d:\\wps\\\u044D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u043A\u0443\u0440\u0441\u0430\u0447\\world of warships wiki\\rabbitmq\\rabbitmqconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A97C4FCB-6835-4F7D-809A-53C2BA54353A}|RabbitMQ\\RabbitMQ.csproj|solutionrelative:rabbitmq\\rabbitmqconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23714B55-3B60-4D46-8D2A-A0B749A2ABC6}|ServerConsole\\ServerConsole.csproj|d:\\wps\\\u044D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u043A\u0443\u0440\u0441\u0430\u0447\\world of warships wiki\\serverconsole\\programserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{23714B55-3B60-4D46-8D2A-A0B749A2ABC6}|ServerConsole\\ServerConsole.csproj|D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\serverconsole\\programserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{23714B55-3B60-4D46-8D2A-A0B749A2ABC6}|ServerConsole\\ServerConsole.csproj|solutionrelative:serverconsole\\programserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{86B7495B-D29F-401C-A935-30C1742268BF}|ClientConsole\\ClientConsole.csproj|d:\\wps\\\u044D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u043A\u0443\u0440\u0441\u0430\u0447\\world of warships wiki\\clientconsole\\programclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{86B7495B-D29F-401C-A935-30C1742268BF}|ClientConsole\\ClientConsole.csproj|D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\clientconsole\\programclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{86B7495B-D29F-401C-A935-30C1742268BF}|ClientConsole\\ClientConsole.csproj|solutionrelative:clientconsole\\programclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|d:\\wps\\\u044D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u043A\u0443\u0440\u0441\u0430\u0447\\world of warships wiki\\generalclasses\\data\\startmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|solutionrelative:generalclasses\\data\\startmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|d:\\wps\\\u044D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u043A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\world-of-warships-wiki\\generalclasses\\data\\lastmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|solutionrelative:generalclasses\\data\\lastmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|d:\\wps\\\u044D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u043A\u0443\u0440\u0441\u0430\u0447\\world of warships wiki\\generalclasses\\data\\basedatamessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|solutionrelative:generalclasses\\data\\basedatamessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|d:\\wps\\\u044D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u043A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\world-of-warships-wiki\\generalclasses\\data\\firstmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|solutionrelative:generalclasses\\data\\firstmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|d:\\wps\\\u044D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u043A\u0443\u0440\u0441\u0430\u0447\\world of warships wiki\\generalclasses\\data\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|d:\\wps\\\u044D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u043A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\world-of-warships-wiki\\generalclasses\\generalconstant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|solutionrelative:generalclasses\\generalconstant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|d:\\wps\\\u044D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u043A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\world-of-warships-wiki\\generalclasses\\data\\requestmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|solutionrelative:generalclasses\\data\\requestmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|d:\\wps\\\u044D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u043A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\world-of-warships-wiki\\generalclasses\\data\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|solutionrelative:generalclasses\\data\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|d:\\wps\\\u044D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u043A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\world-of-warships-wiki\\generalclasses\\data\\basedatamessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84AD0611-18AB-4C11-BF20-6D46904295A7}|GeneralClasses\\GeneralClasses.csproj|solutionrelative:generalclasses\\data\\basedatamessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,32 +42,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RabbitMQConsumer.cs",
-              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\RabbitMQ\\RabbitMQConsumer.cs",
-              "RelativeDocumentMoniker": "RabbitMQ\\RabbitMQConsumer.cs",
-              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\RabbitMQ\\RabbitMQConsumer.cs",
-              "RelativeToolTip": "RabbitMQ\\RabbitMQConsumer.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "ProgramClient.cs",
+              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\ClientConsole\\ProgramClient.cs",
+              "RelativeDocumentMoniker": "ClientConsole\\ProgramClient.cs",
+              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\ClientConsole\\ProgramClient.cs",
+              "RelativeToolTip": "ClientConsole\\ProgramClient.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAYwCcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T13:10:41.264Z",
+              "WhenOpened": "2024-05-01T11:47:15.292Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "StartMessage.cs",
-              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\GeneralClasses\\Data\\StartMessage.cs",
-              "RelativeDocumentMoniker": "GeneralClasses\\Data\\StartMessage.cs",
-              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\GeneralClasses\\Data\\StartMessage.cs",
-              "RelativeToolTip": "GeneralClasses\\Data\\StartMessage.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "ProgramServer.cs",
+              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\ServerConsole\\ProgramServer.cs",
+              "RelativeDocumentMoniker": "ServerConsole\\ProgramServer.cs",
+              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\ServerConsole\\ProgramServer.cs",
+              "RelativeToolTip": "ServerConsole\\ProgramServer.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAABQAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T12:53:00.607Z",
+              "WhenOpened": "2024-05-01T11:47:17.658Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -72,54 +82,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Message.cs",
-              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\GeneralClasses\\Data\\Message.cs",
-              "RelativeDocumentMoniker": "GeneralClasses\\Data\\Message.cs",
-              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\GeneralClasses\\Data\\Message.cs",
-              "RelativeToolTip": "GeneralClasses\\Data\\Message.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAYAAAA",
+              "DocumentIndex": 2,
+              "Title": "LastMessage.cs",
+              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\GeneralClasses\\Data\\LastMessage.cs",
+              "RelativeDocumentMoniker": "GeneralClasses\\Data\\LastMessage.cs",
+              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\GeneralClasses\\Data\\LastMessage.cs",
+              "RelativeToolTip": "GeneralClasses\\Data\\LastMessage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T12:43:13.45Z",
+              "WhenOpened": "2024-05-01T14:52:01.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RequestMessage.cs",
+              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\GeneralClasses\\Data\\RequestMessage.cs",
+              "RelativeDocumentMoniker": "GeneralClasses\\Data\\RequestMessage.cs",
+              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\GeneralClasses\\Data\\RequestMessage.cs",
+              "RelativeToolTip": "GeneralClasses\\Data\\RequestMessage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T14:45:44.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BaseDataMessage.cs",
+              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\GeneralClasses\\Data\\BaseDataMessage.cs",
+              "RelativeDocumentMoniker": "GeneralClasses\\Data\\BaseDataMessage.cs",
+              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\GeneralClasses\\Data\\BaseDataMessage.cs",
+              "RelativeToolTip": "GeneralClasses\\Data\\BaseDataMessage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T14:44:56.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Message.cs",
+              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\GeneralClasses\\Data\\Message.cs",
+              "RelativeDocumentMoniker": "GeneralClasses\\Data\\Message.cs",
+              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\GeneralClasses\\Data\\Message.cs",
+              "RelativeToolTip": "GeneralClasses\\Data\\Message.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T14:44:54.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FirstMessage.cs",
+              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\GeneralClasses\\Data\\FirstMessage.cs",
+              "RelativeDocumentMoniker": "GeneralClasses\\Data\\FirstMessage.cs",
+              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\GeneralClasses\\Data\\FirstMessage.cs",
+              "RelativeToolTip": "GeneralClasses\\Data\\FirstMessage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T14:44:53.391Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "BaseDataMessage.cs",
-              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\GeneralClasses\\Data\\BaseDataMessage.cs",
-              "RelativeDocumentMoniker": "GeneralClasses\\Data\\BaseDataMessage.cs",
-              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\GeneralClasses\\Data\\BaseDataMessage.cs",
-              "RelativeToolTip": "GeneralClasses\\Data\\BaseDataMessage.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
+              "Title": "GeneralConstant.cs",
+              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\GeneralClasses\\GeneralConstant.cs",
+              "RelativeDocumentMoniker": "GeneralClasses\\GeneralConstant.cs",
+              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447 6\u0441\u0435\u043C\\World-of-Warships-wiki\\GeneralClasses\\GeneralConstant.cs",
+              "RelativeToolTip": "GeneralClasses\\GeneralConstant.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T11:50:03.896Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProgramServer.cs",
-              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\ServerConsole\\ProgramServer.cs",
-              "RelativeDocumentMoniker": "ServerConsole\\ProgramServer.cs",
-              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\ServerConsole\\ProgramServer.cs",
-              "RelativeToolTip": "ServerConsole\\ProgramServer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T11:47:17.658Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProgramClient.cs",
-              "DocumentMoniker": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\ClientConsole\\ProgramClient.cs",
-              "RelativeDocumentMoniker": "ClientConsole\\ProgramClient.cs",
-              "ToolTip": "D:\\WPS\\\u042D\u0442\u043E\u0442 \u0441\u0435\u043C\\\u041A\u0443\u0440\u0441\u0430\u0447\\World of Warships wiki\\ClientConsole\\ProgramClient.cs",
-              "RelativeToolTip": "ClientConsole\\ProgramClient.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T11:47:15.292Z",
+              "WhenOpened": "2024-05-01T14:16:31.001Z",
               "EditorCaption": ""
             }
           ]
