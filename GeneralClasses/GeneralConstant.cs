@@ -8,7 +8,7 @@
         public const string RABBTI_MQ_TOPIC_TO_SERVER = "ToServer";
         public const string RABBTI_MQ_TOPIC_TO_CLIENT = "ToClient";
 
-        public const string SERVER_IP = "192.168.148.103";
+        public const string SERVER_IP = "192.168.148.22";
 
         public const string SUCCESS = "SUCCESS";
 

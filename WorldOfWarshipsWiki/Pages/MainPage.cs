@@ -7,7 +7,9 @@ public class MainPage : ContentPage
         Content = new VerticalStackLayout
         {
             Children = {
-                new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Text = "Welcome to .NET MAUI!"
+                new Image
+                {
+                    Source = "http://192.168.148.22/Images/maxresdefault",
                 }
             }
         };
