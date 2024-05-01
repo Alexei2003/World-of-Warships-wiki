@@ -1,13 +1,12 @@
 ﻿using GeneralClasses;
 using GeneralClasses.Data;
 using RabbitMQ;
-using System.Text.Json;
 
 internal class ProgramClient
 {
     private static void Main(string[] args)
     {
-        var topicFromServer = GeneralConstant.RABBTI_MQ_TOPIC_TO_CLIENT +"1";
+        var topicFromServer = GeneralConstant.RABBTI_MQ_TOPIC_TO_CLIENT + "1";
 
         var publisher = new RabbitMQPublisher(GeneralConstant.SERVER_IP,
                                               GeneralConstant.RABBTI_MQ_PORT,
@@ -30,12 +29,12 @@ internal class ProgramClient
 
         while (true)
         {
-            var json = consumer.GetMessage();  
+            var json = consumer.GetMessage();
             Console.WriteLine(json);
 
-            if(json == GeneralConstant.SUCCESS)
+            if (json == GeneralConstant.SUCCESS)
             {
-                
+
             }
 
             var lastMessage = new FirstMessage()

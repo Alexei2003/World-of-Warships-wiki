@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySqlConnector" Version="2.3.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GeneralClasses\GeneralClasses.csproj" />
     <ProjectReference Include="..\RabbitMQ\RabbitMQ.csproj" />
   </ItemGroup>

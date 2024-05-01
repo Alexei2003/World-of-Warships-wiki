@@ -51,7 +51,7 @@
                 // Если сообщение получено успешно, возвращаем его в виде строки
                 if (result != null)
                 {
-                    return Encoding.UTF8.GetString(result.Body.ToArray());  
+                    return Encoding.UTF8.GetString(result.Body.ToArray());
                 }
                 Thread.Sleep(1000);
             }

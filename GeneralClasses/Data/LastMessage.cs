@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GeneralClasses.Data
+﻿namespace GeneralClasses.Data
 {
-    public class LastMessage:Message
+    public class LastMessage : Message
     {
     }
 }

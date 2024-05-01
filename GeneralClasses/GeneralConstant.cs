@@ -10,11 +10,20 @@
 
         public const string SERVER_IP = "192.168.148.22";
 
+        public const string DB_NAME = "mydb";
+        public const string DB_LOGIN = "Admin";
+        public const string DB_PASSWORD = "1a5B3f97";
+
         public const string SUCCESS = "SUCCESS";
 
         public enum GeneralServerActions
         {
-            None,Start,Finish,
+            None, Start, Finish,
+        }
+
+        public enum GeneralObjectFromDB
+        {
+            None, Country, Countries, Ship, Ships, SpecialCommander, SpecialCommanders
         }
     }
 }

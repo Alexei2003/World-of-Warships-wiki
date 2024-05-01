@@ -2,6 +2,7 @@
 using GeneralClasses.Data;
 using Newtonsoft.Json;
 using RabbitMQ;
+using ServerConsole;
 
 internal class ProgramServer
 {
@@ -12,8 +13,10 @@ internal class ProgramServer
                                             GeneralConstant.RABBIT_MQ_LOGIN,
                                             GeneralConstant.RABBIT_MQ_PASSWORD,
                                             GeneralConstant.RABBTI_MQ_TOPIC_TO_SERVER);
-       
+
         var publishers = new Dictionary<string, RabbitMQPublisher>();
+
+        var mySQLConnector = new MySQLConnector($"server={GeneralConstant.SERVER_IP};database={GeneralConstant.DB_NAME};uid={GeneralConstant.DB_LOGIN};password={GeneralConstant.DB_PASSWORD};");
 
         while (true)
         {
@@ -31,8 +34,8 @@ internal class ProgramServer
                                                                                                GeneralConstant.RABBIT_MQ_LOGIN,
                                                                                                GeneralConstant.RABBIT_MQ_PASSWORD,
                                                                                                basePartOfMassage.TopicFromServer));
-                    
-                    if(!publishers.TryGetValue(basePartOfMassage.TopicFromServer, out publisher))
+
+                    if (!publishers.TryGetValue(basePartOfMassage.TopicFromServer, out publisher))
                     {
                         break;
                     }
@@ -56,5 +59,6 @@ internal class ProgramServer
                     break;
             };
         }
+        mySQLConnector.Finish();
     }
 }
