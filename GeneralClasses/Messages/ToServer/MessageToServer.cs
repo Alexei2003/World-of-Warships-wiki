@@ -1,16 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿
+using GeneralClasses.Messages;
 
-namespace GeneralClasses.Data
+namespace GeneralClasses.Data.ToServer
 {
-    public class Message
+    public class MessageToServer : Message
     {
         public GeneralConstant.GeneralServerActions Action { get; set; } = GeneralConstant.GeneralServerActions.None;
 
         public string? TopicFromServer { get; set; } = null;
-
-        public string ToJson()
-        {
-            return JsonConvert.SerializeObject(this);
-        }
     }
 }

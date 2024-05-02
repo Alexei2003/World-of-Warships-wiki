@@ -1,5 +1,5 @@
 ﻿using GeneralClasses;
-using GeneralClasses.Data;
+using GeneralClasses.Data.ToServer;
 using RabbitMQ;
 
 namespace WorldOfWarshipsWiki

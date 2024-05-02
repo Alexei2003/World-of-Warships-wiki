@@ -1,5 +1,4 @@
 ﻿using GeneralClasses;
-using GeneralClasses.Data;
 using RabbitMQ;
 
 internal class ProgramClient

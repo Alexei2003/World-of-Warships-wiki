@@ -1,10 +1,9 @@
-﻿namespace GeneralClasses.Data
+﻿namespace GeneralClasses.Messages.FromServer.DB
 {
-    public class BaseDataMessage : Message
+    public class DBObjectOfList
     {
         public int? Id { get; set; } = null;
         public string? Name { get; set; } = null;
-        public string? Description { get; set; } = null;
         public string? PicturePath { get; set; } = null;
     }
 }

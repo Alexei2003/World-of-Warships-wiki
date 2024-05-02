@@ -33,11 +33,11 @@ public class MainPage : ContentPage
 
     private async void ToCountriesShipsOnButtonClicked(object sender, System.EventArgs e)
     {
-        await Navigation.PushAsync(new CountriesPage(GeneratorPage.CountriesTo.Ships));
+        await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.Ships));
     }
 
     private async void ToCountriesSpecialCommandersOnButtonClicked(object sender, System.EventArgs e)
     {
-        await Navigation.PushAsync(new CountriesPage(GeneratorPage.CountriesTo.SpecialCommanders));
+        await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.SpecialCommanders));
     }
 }

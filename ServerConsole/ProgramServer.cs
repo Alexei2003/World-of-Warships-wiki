@@ -1,6 +1,9 @@
 ﻿using GeneralClasses;
-using GeneralClasses.Data;
-using GeneralClasses.Data.Request;
+using GeneralClasses.Data.FromServer.DB;
+using GeneralClasses.Data.ToServer;
+using GeneralClasses.Data.ToServer.Request;
+using GeneralClasses.Messages.FromServer.DB;
+using MySqlConnector;
 using Newtonsoft.Json;
 using RabbitMQ;
 using ServerConsole;
@@ -22,9 +25,10 @@ internal class ProgramServer
         while (true)
         {
             var json = consumer.GetMessage();
-            Console.WriteLine(json);
+            Console.WriteLine("GET: " + json);
+            Console.WriteLine();
 
-            var basePartOfMessage = JsonConvert.DeserializeObject<Message>(json);
+            var basePartOfMessage = JsonConvert.DeserializeObject<MessageToServer>(json);
 
             RabbitMQPublisher publisher;
             switch (basePartOfMessage.Action)
@@ -47,28 +51,66 @@ internal class ProgramServer
 
                 case GeneralConstant.GeneralServerActions.Get:
 
-                    var message = JsonConvert.DeserializeObject<RequestListMessage>(json);
+                    var messageGet = JsonConvert.DeserializeObject<RequestListMessage>(json);
+                    var messageListSend = new DBListMessage();
 
-                    switch (message.ObjectName)
+                    MySqlDataReader dataReader;
+
+                    switch (messageGet.ObjectName)
                     {
                         case GeneralConstant.GeneralObjectFromDB.Country:
+                            Console.WriteLine("Send: " + json);
+                            Console.WriteLine();
                             break;
 
                         case GeneralConstant.GeneralObjectFromDB.Countries:
-                            var a = mySQLConnector.GetDataUseDBFunc("get_countries_ship");
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries_ship");
+
+                            while (dataReader.Read())
+                            {
+                                messageListSend.List.Add(new DBObjectOfList()
+                                {
+                                    Id = dataReader.GetInt32("id"),
+                                    Name = dataReader.GetString("name"),
+                                    PicturePath = dataReader.GetString("picturepath"),
+                                });
+                            }
+
+                            dataReader.Close();
+
+
+                            if (!publishers.TryGetValue(basePartOfMessage.TopicFromServer, out publisher))
+                            {
+                                break;
+                            }
+
+                            json = messageListSend.ToJson();
+
+                            Console.WriteLine("Send: " + json);
+                            Console.WriteLine();
+
+                            publisher.SendMessage(json);
 
                             break;
 
                         case GeneralConstant.GeneralObjectFromDB.Ship:
+                            Console.WriteLine("Send: " + json);
+                            Console.WriteLine();
                             break;
 
                         case GeneralConstant.GeneralObjectFromDB.Ships:
+                            Console.WriteLine("Send: " + json);
+                            Console.WriteLine();
                             break;
 
                         case GeneralConstant.GeneralObjectFromDB.SpecialCommander:
+                            Console.WriteLine("Send: " + json);
+                            Console.WriteLine();
                             break;
 
                         case GeneralConstant.GeneralObjectFromDB.SpecialCommanders:
+                            Console.WriteLine("Send: " + json);
+                            Console.WriteLine();
                             break;
                     }
 
