@@ -1,5 +1,6 @@
 ﻿using GeneralClasses;
 using GeneralClasses.Data;
+using GeneralClasses.Data.Request;
 using Newtonsoft.Json;
 using RabbitMQ;
 using ServerConsole;
@@ -23,19 +24,19 @@ internal class ProgramServer
             var json = consumer.GetMessage();
             Console.WriteLine(json);
 
-            var basePartOfMassage = JsonConvert.DeserializeObject<Message>(json);
+            var basePartOfMessage = JsonConvert.DeserializeObject<Message>(json);
 
             RabbitMQPublisher publisher;
-            switch (basePartOfMassage.Action)
+            switch (basePartOfMessage.Action)
             {
                 case GeneralConstant.GeneralServerActions.Start:
-                    publishers.TryAdd(basePartOfMassage.TopicFromServer, new RabbitMQPublisher(GeneralConstant.SERVER_IP,
+                    publishers.TryAdd(basePartOfMessage.TopicFromServer, new RabbitMQPublisher(GeneralConstant.SERVER_IP,
                                                                                                GeneralConstant.RABBTI_MQ_PORT,
                                                                                                GeneralConstant.RABBIT_MQ_LOGIN,
                                                                                                GeneralConstant.RABBIT_MQ_PASSWORD,
-                                                                                               basePartOfMassage.TopicFromServer));
+                                                                                               basePartOfMessage.TopicFromServer));
 
-                    if (!publishers.TryGetValue(basePartOfMassage.TopicFromServer, out publisher))
+                    if (!publishers.TryGetValue(basePartOfMessage.TopicFromServer, out publisher))
                     {
                         break;
                     }
@@ -44,15 +45,44 @@ internal class ProgramServer
 
                     break;
 
+                case GeneralConstant.GeneralServerActions.Get:
+
+                    var message = JsonConvert.DeserializeObject<RequestListMessage>(json);
+
+                    switch (message.ObjectName)
+                    {
+                        case GeneralConstant.GeneralObjectFromDB.Country:
+                            break;
+
+                        case GeneralConstant.GeneralObjectFromDB.Countries:
+                            var a = mySQLConnector.GetDataUseDBFunc("get_countries_ship");
+
+                            break;
+
+                        case GeneralConstant.GeneralObjectFromDB.Ship:
+                            break;
+
+                        case GeneralConstant.GeneralObjectFromDB.Ships:
+                            break;
+
+                        case GeneralConstant.GeneralObjectFromDB.SpecialCommander:
+                            break;
+
+                        case GeneralConstant.GeneralObjectFromDB.SpecialCommanders:
+                            break;
+                    }
+
+                    break;
+
                 case GeneralConstant.GeneralServerActions.Finish:
-                    if (!publishers.TryGetValue(basePartOfMassage.TopicFromServer, out publisher))
+                    if (!publishers.TryGetValue(basePartOfMessage.TopicFromServer, out publisher))
                     {
                         break;
                     }
                     publisher.DeleteQueue();
                     publisher.CloseConnection();
 
-                    publishers.Remove(basePartOfMassage.TopicFromServer);
+                    publishers.Remove(basePartOfMessage.TopicFromServer);
                     break;
                 case GeneralConstant.GeneralServerActions.None:
                 default:

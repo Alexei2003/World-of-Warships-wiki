@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQ", "RabbitMQ\RabbitMQ.csproj", "{A97C4FCB-6835-4F7D-809A-53C2BA54353A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQ", "RabbitMQ\RabbitMQ.csproj", "{A97C4FCB-6835-4F7D-809A-53C2BA54353A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerConsole", "ServerConsole\ServerConsole.csproj", "{23714B55-3B60-4D46-8D2A-A0B749A2ABC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerConsole", "ServerConsole\ServerConsole.csproj", "{23714B55-3B60-4D46-8D2A-A0B749A2ABC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConsole", "ClientConsole\ClientConsole.csproj", "{86B7495B-D29F-401C-A935-30C1742268BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientConsole", "ClientConsole\ClientConsole.csproj", "{86B7495B-D29F-401C-A935-30C1742268BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfWarshipsWiki", "WorldOfWarshipsWiki\WorldOfWarshipsWiki.csproj", "{EFF0218B-A314-4E04-9D6F-CE1F36110490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldOfWarshipsWiki", "WorldOfWarshipsWiki\WorldOfWarshipsWiki.csproj", "{EFF0218B-A314-4E04-9D6F-CE1F36110490}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralClasses", "GeneralClasses\GeneralClasses.csproj", "{84AD0611-18AB-4C11-BF20-6D46904295A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralClasses", "GeneralClasses\GeneralClasses.csproj", "{84AD0611-18AB-4C11-BF20-6D46904295A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

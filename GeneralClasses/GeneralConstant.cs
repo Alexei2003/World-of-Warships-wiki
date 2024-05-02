@@ -18,7 +18,7 @@
 
         public enum GeneralServerActions
         {
-            None, Start, Finish,
+            None, Start, Finish, Get
         }
 
         public enum GeneralObjectFromDB

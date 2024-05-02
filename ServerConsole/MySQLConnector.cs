@@ -1,4 +1,5 @@
 ﻿using MySqlConnector;
+using System.Data;
 
 namespace ServerConsole
 {
@@ -17,12 +18,15 @@ namespace ServerConsole
             connection.Close();
         }
 
-        private object? GetDataUseDBFunc(string func)
+        public MySqlDataReader GetDataUseDBFunc(string func)
         {
-            using (MySqlCommand command = new MySqlCommand("SELECT AddTwoNumbers(5, 7)", connection))
+            using (MySqlCommand command = new MySqlCommand(func, connection))
             {
-                return command.ExecuteScalar();
+                command.CommandType = CommandType.StoredProcedure; // Устанавливаем тип команды как StoredProcedure
+                MySqlDataReader reader = command.ExecuteReader();
+                return reader;
             }
         }
+
     }
 }

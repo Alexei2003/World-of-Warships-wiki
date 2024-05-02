@@ -41,7 +41,7 @@ namespace WorldOfWarshipsWiki.Pages
 
         public static string GetUrlImageFromPath(string path)
         {
-            return "http://" + GeneralConstant.SERVER_IP + "/" + path;
+            return "http://" + GeneralConstant.SERVER_IP + "/WorldOfWarships/" + path;
         }
         public enum CountriesTo
         {
