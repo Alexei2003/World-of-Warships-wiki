@@ -64,7 +64,7 @@ internal class ProgramServer
                             break;
 
                         case GeneralConstant.GeneralObjectFromDB.Countries:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries_ship");
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
 
                             while (dataReader.Read())
                             {

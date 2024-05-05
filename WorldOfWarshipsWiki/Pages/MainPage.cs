@@ -8,6 +8,7 @@ public class MainPage : ContentPage
         {
             HorizontalOptions = LayoutOptions.Center,
             VerticalOptions = LayoutOptions.Center,
+            Spacing = 10,
         };
 
         var toCountriesShips = new Button()
@@ -28,6 +29,15 @@ public class MainPage : ContentPage
         toCountriesSpecialCommanders.Clicked += ToCountriesSpecialCommandersOnButtonClicked;
         verticalStack.Add(toCountriesSpecialCommanders);
 
+        var toCountry = new Button()
+        {
+            HorizontalOptions = LayoutOptions.Center,
+            VerticalOptions = LayoutOptions.Center,
+            Text = "Особые командиры"
+        };
+        toCountry.Clicked += ToCountriesSpecialCommandersOnButtonClicked;
+        verticalStack.Add(toCountry);
+
         Content = verticalStack;
     }
 
@@ -39,5 +49,10 @@ public class MainPage : ContentPage
     private async void ToCountriesSpecialCommandersOnButtonClicked(object sender, System.EventArgs e)
     {
         await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.SpecialCommanders));
+    }
+
+    private async void ToCountryOnButtonClicked(object sender, System.EventArgs e)
+    {
+        //await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.SpecialCommanders));
     }
 }

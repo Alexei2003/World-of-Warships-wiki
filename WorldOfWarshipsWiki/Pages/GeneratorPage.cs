@@ -7,7 +7,7 @@ namespace WorldOfWarshipsWiki.Pages
 {
     public static class GeneratorPage
     {
-        public static VerticalStackLayout GetObjectOfListPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB typeObjectShow, GeneralClasses.GeneralConstant.GeneralObjectFromDB typeObjectNext)
+        public static VerticalStackLayout GetObjectOfListPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB typeObjectShow, GeneralClasses.GeneralConstant.GeneralObjectFromDB typeObjectNext, TapGestureRecognizer funcGoToNextPage)
         {
             var request = new RequestListMessage()
             {
@@ -42,12 +42,21 @@ namespace WorldOfWarshipsWiki.Pages
 
                 if (message.PicturePath != null)
                 {
-                    vObjectStack.Add(new Image()
+                    var image = new Image()
                     {
                         Source = GetUrlImageFromPath(message.PicturePath, typeObjectShow),
                         WidthRequest = PagesConstants.SIZE_IMAGE_IN_LIST_PAGE,
                         HeightRequest = PagesConstants.SIZE_IMAGE_IN_LIST_PAGE,
-                    });
+                        BindingContext = new NextObjectData()
+                        {
+                            NextObjectType = typeObjectNext, 
+                            IdPrevObject = message.Id
+                        }
+                    };
+
+                    image.GestureRecognizers.Add(funcGoToNextPage);
+
+                    vObjectStack.Add(image);
                 }
 
                 vStack.Add(vObjectStack);
@@ -56,7 +65,6 @@ namespace WorldOfWarshipsWiki.Pages
 
             return vStack;
         }
-
 
         public static HorizontalStackLayout GetBasePartOfObjectPage(DBBaseDataMessage message, GeneralClasses.GeneralConstant.GeneralObjectFromDB typeObjectShow)
         {
@@ -98,12 +106,19 @@ namespace WorldOfWarshipsWiki.Pages
 
             switch (typeObjectShow)
             {
-                case GeneralConstant.GeneralObjectFromDB.Country:
+                case GeneralConstant.GeneralObjectFromDB.Countries:
                     add = "Countries/";
                     break;
             }
             var a = "http://" + GeneralConstant.SERVER_IP + "/WorldOfWarships/Images/" + add + path;
             return "http://" + GeneralConstant.SERVER_IP + "/WorldOfWarships/Images/" + add + path;
+        }
+
+        public class NextObjectData()
+        {
+            public GeneralConstant.GeneralObjectFromDB? NextObjectType { get; set; } = null;
+
+            public int? IdPrevObject { get; set; } = null;
         }
     }
 }
