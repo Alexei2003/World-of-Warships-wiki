@@ -48,7 +48,7 @@ public class MainPage : ContentPage
 
     private async void ToCountriesSpecialCommandersOnButtonClicked(object sender, System.EventArgs e)
     {
-        await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.SpecialCommanders));
+        await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.Commanders));
     }
 
     private async void ToCountryOnButtonClicked(object sender, System.EventArgs e)

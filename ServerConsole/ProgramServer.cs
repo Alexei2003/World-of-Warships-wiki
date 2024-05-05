@@ -54,8 +54,58 @@ internal class ProgramServer
                     var messageGet = JsonConvert.DeserializeObject<RequestListMessage>(json);
                     var messageListSend = new DBListMessage();
 
-                    MySqlDataReader dataReader;
+                    MySqlDataReader dataReader = null;
 
+                    // Логика списков
+                    switch (messageGet.ObjectName)
+                    {
+                        case GeneralConstant.GeneralObjectFromDB.Countries:
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            break;
+
+                        case GeneralConstant.GeneralObjectFromDB.Ships:
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            break;
+
+                        case GeneralConstant.GeneralObjectFromDB.Commanders:
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    if (dataReader != null)
+                    {
+                        while (dataReader.Read())
+                        {
+                            messageListSend.List.Add(new DBObjectOfList()
+                            {
+                                Id = dataReader.GetInt32("id"),
+                                Name = dataReader.GetString("name"),
+                                PicturePath = dataReader.GetString("picturepath"),
+                            });
+                        }
+
+                        dataReader.Close();
+
+
+                        if (!publishers.TryGetValue(basePartOfMessage.TopicFromServer, out publisher))
+                        {
+                            break;
+                        }
+
+                        json = messageListSend.ToJson();
+
+                        Console.WriteLine("Send: " + json);
+                        Console.WriteLine();
+
+                        publisher.SendMessage(json);
+
+                        continue;
+                    }
+                    
+                    // Логика объектов
                     switch (messageGet.ObjectName)
                     {
                         case GeneralConstant.GeneralObjectFromDB.Country:
@@ -63,55 +113,18 @@ internal class ProgramServer
                             Console.WriteLine();
                             break;
 
-                        case GeneralConstant.GeneralObjectFromDB.Countries:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
-
-                            while (dataReader.Read())
-                            {
-                                messageListSend.List.Add(new DBObjectOfList()
-                                {
-                                    Id = dataReader.GetInt32("id"),
-                                    Name = dataReader.GetString("name"),
-                                    PicturePath = dataReader.GetString("picturepath"),
-                                });
-                            }
-
-                            dataReader.Close();
-
-
-                            if (!publishers.TryGetValue(basePartOfMessage.TopicFromServer, out publisher))
-                            {
-                                break;
-                            }
-
-                            json = messageListSend.ToJson();
-
-                            Console.WriteLine("Send: " + json);
-                            Console.WriteLine();
-
-                            publisher.SendMessage(json);
-
-                            break;
-
+                        
                         case GeneralConstant.GeneralObjectFromDB.Ship:
                             Console.WriteLine("Send: " + json);
                             Console.WriteLine();
                             break;
 
-                        case GeneralConstant.GeneralObjectFromDB.Ships:
+
+                        case GeneralConstant.GeneralObjectFromDB.Commander:
                             Console.WriteLine("Send: " + json);
                             Console.WriteLine();
                             break;
 
-                        case GeneralConstant.GeneralObjectFromDB.SpecialCommander:
-                            Console.WriteLine("Send: " + json);
-                            Console.WriteLine();
-                            break;
-
-                        case GeneralConstant.GeneralObjectFromDB.SpecialCommanders:
-                            Console.WriteLine("Send: " + json);
-                            Console.WriteLine();
-                            break;
                     }
 
                     break;

@@ -1,23 +1,14 @@
+using GeneralClasses;
+
 namespace WorldOfWarshipsWiki.Pages.Commanders;
 
 public class CommandersPage : ContentPage
 {
-    public CommandersPage()
+    public CommandersPage(int contryId)
     {
-        var verticalStack = new VerticalStackLayout()
-        {
-            HorizontalOptions = LayoutOptions.Fill,
-            VerticalOptions = LayoutOptions.Start,
-        };
-
-
-
-        var usersScrollView = new ScrollView
-        {
-            Content = verticalStack
-        };
-
-        Content = usersScrollView;
+        var imageGestureRecognizer = new TapGestureRecognizer();
+        imageGestureRecognizer.Tapped += ToShipOnButtonClicked;
+        Content = GeneratorPage.GetObjectOfListPage(GeneralConstant.GeneralObjectFromDB.Commanders, imageGestureRecognizer, contryId);
     }
 
     private async void ToShipOnButtonClicked(object sender, EventArgs e)

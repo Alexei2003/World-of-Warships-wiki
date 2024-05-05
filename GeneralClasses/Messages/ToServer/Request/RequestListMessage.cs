@@ -2,6 +2,6 @@
 {
     public class RequestListMessage : RequestMessage
     {
-
+        public int? CountryId { get; set; } = null;
     }
 }

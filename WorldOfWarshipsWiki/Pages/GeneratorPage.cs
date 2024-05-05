@@ -7,13 +7,14 @@ namespace WorldOfWarshipsWiki.Pages
 {
     public static class GeneratorPage
     {
-        public static VerticalStackLayout GetObjectOfListPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB typeObjectShow, GeneralClasses.GeneralConstant.GeneralObjectFromDB typeObjectNext, TapGestureRecognizer funcGoToNextPage)
+        public static ScrollView GetObjectOfListPage(GeneralConstant.GeneralObjectFromDB typeObjectShow, TapGestureRecognizer funcGoToNextPage, int? contryId = null)
         {
             var request = new RequestListMessage()
             {
                 Action = GeneralConstant.GeneralServerActions.Get,
                 TopicFromServer = RabbitMQ.TopicFromServer,
-                ObjectName = typeObjectShow
+                ObjectName = typeObjectShow,
+                CountryId = contryId
             };
 
             RabbitMQ.Publisher.SendMessage(request.ToJson());
@@ -25,6 +26,31 @@ namespace WorldOfWarshipsWiki.Pages
             {
                 HorizontalOptions = LayoutOptions.Center,
             };
+
+            var namePageText = "";
+
+            switch (typeObjectShow)
+            {
+                case GeneralConstant.GeneralObjectFromDB.Countries:
+                    namePageText = "Список стран";
+                    break;
+                case GeneralConstant.GeneralObjectFromDB.Ships:
+                    namePageText = "Список короблей";
+                    break;
+                case GeneralConstant.GeneralObjectFromDB.Commanders:
+                    namePageText = "Список уникальных командиров";
+                    break;
+
+            }
+
+            var namePage = new Label()
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                FontSize = 20,
+                Text = namePageText,
+            };
+            vStack.Add(namePage);
+
             foreach (var message in messageList.List)
             {
                 var vObjectStack = new VerticalStackLayout()
@@ -47,11 +73,7 @@ namespace WorldOfWarshipsWiki.Pages
                         Source = GetUrlImageFromPath(message.PicturePath, typeObjectShow),
                         WidthRequest = PagesConstants.SIZE_IMAGE_IN_LIST_PAGE,
                         HeightRequest = PagesConstants.SIZE_IMAGE_IN_LIST_PAGE,
-                        BindingContext = new NextObjectData()
-                        {
-                            NextObjectType = typeObjectNext, 
-                            IdPrevObject = message.Id
-                        }
+                        BindingContext = message.Id
                     };
 
                     image.GestureRecognizers.Add(funcGoToNextPage);
@@ -62,8 +84,12 @@ namespace WorldOfWarshipsWiki.Pages
                 vStack.Add(vObjectStack);
             }
 
+            var scrollView = new ScrollView
+            {
+                Content = vStack
+            };
 
-            return vStack;
+            return scrollView;
         }
 
         public static HorizontalStackLayout GetBasePartOfObjectPage(DBBaseDataMessage message, GeneralClasses.GeneralConstant.GeneralObjectFromDB typeObjectShow)
@@ -109,8 +135,13 @@ namespace WorldOfWarshipsWiki.Pages
                 case GeneralConstant.GeneralObjectFromDB.Countries:
                     add = "Countries/";
                     break;
+                case GeneralConstant.GeneralObjectFromDB.Ships:
+                    add = "Ships/";
+                    break;
+                case GeneralConstant.GeneralObjectFromDB.Commanders:
+                    add = "Commanders/";
+                    break;
             }
-            var a = "http://" + GeneralConstant.SERVER_IP + "/WorldOfWarships/Images/" + add + path;
             return "http://" + GeneralConstant.SERVER_IP + "/WorldOfWarships/Images/" + add + path;
         }
 

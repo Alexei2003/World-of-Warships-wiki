@@ -23,7 +23,7 @@
 
         public enum GeneralObjectFromDB
         {
-            None, Country, Countries, Ship, Ships, SpecialCommander, SpecialCommanders
+            None, Country, Countries, Ship, Ships, Commander, Commanders
         }
     }
 }
