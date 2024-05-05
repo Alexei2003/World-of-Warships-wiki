@@ -8,7 +8,7 @@ public class ContainersPage : ContentPage
     {
         var imageGestureRecognizer = new TapGestureRecognizer();
         imageGestureRecognizer.Tapped += OnButtonClicked;
-        Content = GeneratorPage.GetObjectOfListPage(GeneralConstant.GeneralObjectFromDB.Container, imageGestureRecognizer);
+        Content = GeneratorPage.GetObjectOfListPage(GeneralConstant.GeneralObjectFromDB.Containers, imageGestureRecognizer);
     }
 
     private async void OnButtonClicked(object sender, EventArgs e)

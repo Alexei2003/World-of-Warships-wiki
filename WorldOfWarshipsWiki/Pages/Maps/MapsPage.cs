@@ -8,7 +8,7 @@ public class MapsPage : ContentPage
     {
         var imageGestureRecognizer = new TapGestureRecognizer();
         imageGestureRecognizer.Tapped += OnButtonClicked;
-        Content = GeneratorPage.GetObjectOfListPage(GeneralConstant.GeneralObjectFromDB.PlayerLevels, imageGestureRecognizer);
+        Content = GeneratorPage.GetObjectOfListPage(GeneralConstant.GeneralObjectFromDB.Maps, imageGestureRecognizer);
     }
 
     private async void OnButtonClicked(object sender, EventArgs e)

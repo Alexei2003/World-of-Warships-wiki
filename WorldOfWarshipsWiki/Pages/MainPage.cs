@@ -48,7 +48,7 @@ public class MainPage : ContentPage
         {
             HorizontalOptions = LayoutOptions.Center,
             VerticalOptions = LayoutOptions.Center,
-            Text = "Страны"
+            Text = "Карты"
         };
         toMaps.Clicked += ToMapsOnButtonClicked;
         verticalStack.Add(toMaps);
@@ -57,7 +57,7 @@ public class MainPage : ContentPage
         {
             HorizontalOptions = LayoutOptions.Center,
             VerticalOptions = LayoutOptions.Center,
-            Text = "Страны"
+            Text = "Уровни игрока"
         };
         toPlayerLevels.Clicked += ToPlayerLevelsOnButtonClicked;
         verticalStack.Add(toPlayerLevels);
@@ -66,7 +66,7 @@ public class MainPage : ContentPage
         {
             HorizontalOptions = LayoutOptions.Center,
             VerticalOptions = LayoutOptions.Center,
-            Text = "Страны"
+            Text = "Достижения"
         };
         toAchievements.Clicked += ToAchievementsOnButtonClicked;
         verticalStack.Add(toAchievements);
@@ -75,7 +75,7 @@ public class MainPage : ContentPage
         {
             HorizontalOptions = LayoutOptions.Center,
             VerticalOptions = LayoutOptions.Center,
-            Text = "Страны"
+            Text = "Контейнеры"
         };
         toContainers.Clicked += ToContainersOnButtonClicked;
         verticalStack.Add(toContainers);
