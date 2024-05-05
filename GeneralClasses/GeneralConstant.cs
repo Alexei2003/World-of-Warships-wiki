@@ -23,7 +23,14 @@
 
         public enum GeneralObjectFromDB
         {
-            None, Country, Countries, Ship, Ships, Commander, Commanders
+            None,
+            Countries, Country,
+            Ships, Ship,
+            Commanders, Commander,
+            Maps, Map,
+            PlayerLevels, PlayerLevel,
+            Achievements, Achievement,
+            Containers, Container
         }
     }
 }

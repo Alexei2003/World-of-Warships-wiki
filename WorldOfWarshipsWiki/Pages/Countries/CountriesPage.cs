@@ -2,7 +2,7 @@ using GeneralClasses;
 using WorldOfWarshipsWiki.Pages.Commanders;
 using WorldOfWarshipsWiki.Pages.Ships;
 
-namespace WorldOfWarshipsWiki.Pages;
+namespace WorldOfWarshipsWiki.Pages.Countries;
 
 public class CountriesPage : ContentPage
 {

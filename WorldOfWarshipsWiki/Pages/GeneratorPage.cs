@@ -2,6 +2,7 @@
 using GeneralClasses.Data.FromServer.DB;
 using GeneralClasses.Data.ToServer.Request;
 using Newtonsoft.Json;
+using static Microsoft.Maui.ApplicationModel.Permissions;
 
 namespace WorldOfWarshipsWiki.Pages
 {
@@ -40,7 +41,18 @@ namespace WorldOfWarshipsWiki.Pages
                 case GeneralConstant.GeneralObjectFromDB.Commanders:
                     namePageText = "Список уникальных командиров";
                     break;
-
+                case GeneralConstant.GeneralObjectFromDB.Maps:
+                    namePageText = "Список карт";
+                    break;
+                case GeneralConstant.GeneralObjectFromDB.PlayerLevels:
+                    namePageText = "Список уровней игрока";
+                    break;
+                case GeneralConstant.GeneralObjectFromDB.Achievements:
+                    namePageText = "Список достижений";
+                    break;
+                case GeneralConstant.GeneralObjectFromDB.Containers:
+                    namePageText = "Список контейнеров";
+                    break;
             }
 
             var namePage = new Label()
@@ -141,7 +153,20 @@ namespace WorldOfWarshipsWiki.Pages
                 case GeneralConstant.GeneralObjectFromDB.Commanders:
                     add = "Commanders/";
                     break;
+                case GeneralConstant.GeneralObjectFromDB.Maps:
+                    add = "Maps/";
+                    break;
+                case GeneralConstant.GeneralObjectFromDB.PlayerLevels:
+                    add = "PlayerLevels/";
+                    break;
+                case GeneralConstant.GeneralObjectFromDB.Achievements:
+                    add = "Achievements/";
+                    break;
+                case GeneralConstant.GeneralObjectFromDB.Containers:
+                    add = "Containers/";
+                    break;
             }
+
             return "http://" + GeneralConstant.SERVER_IP + "/WorldOfWarships/Images/" + add + path;
         }
 

@@ -13,6 +13,7 @@ public class CommandersPage : ContentPage
 
     private async void ToShipOnButtonClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new CommanderPage());
+        var commanderId = (int)((Image)sender).BindingContext;
+        await Navigation.PushAsync(new CommanderPage(commanderId));
     }
 }

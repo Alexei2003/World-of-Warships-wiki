@@ -62,12 +62,22 @@ internal class ProgramServer
                         case GeneralConstant.GeneralObjectFromDB.Countries:
                             dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
                             break;
-
                         case GeneralConstant.GeneralObjectFromDB.Ships:
                             dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
                             break;
-
                         case GeneralConstant.GeneralObjectFromDB.Commanders:
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            break;
+                        case GeneralConstant.GeneralObjectFromDB.Maps:
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            break;
+                        case GeneralConstant.GeneralObjectFromDB.PlayerLevels:
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            break;
+                        case GeneralConstant.GeneralObjectFromDB.Achievements:
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            break;
+                        case GeneralConstant.GeneralObjectFromDB.Containers:
                             dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
                             break;
 
@@ -104,7 +114,7 @@ internal class ProgramServer
 
                         continue;
                     }
-                    
+
                     // Логика объектов
                     switch (messageGet.ObjectName)
                     {
@@ -113,7 +123,7 @@ internal class ProgramServer
                             Console.WriteLine();
                             break;
 
-                        
+
                         case GeneralConstant.GeneralObjectFromDB.Ship:
                             Console.WriteLine("Send: " + json);
                             Console.WriteLine();

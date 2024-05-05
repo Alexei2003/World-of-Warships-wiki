@@ -2,7 +2,7 @@ namespace WorldOfWarshipsWiki.Pages.Commanders;
 
 public class CommanderPage : ContentPage
 {
-    public CommanderPage()
+    public CommanderPage(int commanderId)
     {
         Content = new VerticalStackLayout
         {
