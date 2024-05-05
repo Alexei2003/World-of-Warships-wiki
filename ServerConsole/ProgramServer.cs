@@ -3,6 +3,7 @@ using GeneralClasses.Data.FromServer.DB;
 using GeneralClasses.Data.ToServer;
 using GeneralClasses.Data.ToServer.Request;
 using GeneralClasses.Messages.FromServer.DB;
+using GeneralClasses.Messages.FromServer.DB.DBObjects;
 using MySqlConnector;
 using Newtonsoft.Json;
 using RabbitMQ;
@@ -51,8 +52,8 @@ internal class ProgramServer
 
                 case GeneralConstant.GeneralServerActions.Get:
 
-                    var messageGet = JsonConvert.DeserializeObject<RequestListMessage>(json);
-                    var messageListSend = new DBListMessage();
+                    var messageGet = JsonConvert.DeserializeObject<RequestMessage>(json);
+                    RequestListMessage messageListGet;
 
                     MySqlDataReader dataReader = null;
 
@@ -60,25 +61,27 @@ internal class ProgramServer
                     switch (messageGet.ObjectName)
                     {
                         case GeneralConstant.GeneralObjectFromDB.Countries:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            dataReader = mySQLConnector.GetAllDataUseDBFunc("get_countries");
                             break;
                         case GeneralConstant.GeneralObjectFromDB.Ships:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_ships");
+                            messageListGet = JsonConvert.DeserializeObject<RequestListMessage>(json);
+                            dataReader = mySQLConnector.GetAllDataByCountryIdUseDBFunc("get_ships_by_country_id", messageListGet.CountryId.Value);
                             break;
                         case GeneralConstant.GeneralObjectFromDB.Commanders:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_commanders");
+                            messageListGet = JsonConvert.DeserializeObject<RequestListMessage>(json);
+                            dataReader = mySQLConnector.GetAllDataByCountryIdUseDBFunc("get_commanders_by_country_id", messageListGet.CountryId.Value);
                             break;
                         case GeneralConstant.GeneralObjectFromDB.Maps:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_maps");
+                            dataReader = mySQLConnector.GetAllDataUseDBFunc("get_maps");
                             break;
                         case GeneralConstant.GeneralObjectFromDB.PlayerLevels:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_player_levels");
+                            dataReader = mySQLConnector.GetAllDataUseDBFunc("get_player_levels");
                             break;
                         case GeneralConstant.GeneralObjectFromDB.Achievements:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_achievements");
+                            dataReader = mySQLConnector.GetAllDataUseDBFunc("get_achievements");
                             break;
                         case GeneralConstant.GeneralObjectFromDB.Containers:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_containers");
+                            dataReader = mySQLConnector.GetAllDataUseDBFunc("get_containers");
                             break;
 
                         default:
@@ -87,6 +90,8 @@ internal class ProgramServer
 
                     if (dataReader != null)
                     {
+                        var messageListSend = new DBListMessage();
+
                         while (dataReader.Read())
                         {
                             messageListSend.List.Add(new DBObjectOfList()
@@ -114,27 +119,97 @@ internal class ProgramServer
 
                         continue;
                     }
-
-                    // Логика объектов
-                    switch (messageGet.ObjectName)
+                    else
                     {
-                        case GeneralConstant.GeneralObjectFromDB.Country:
-                            Console.WriteLine("Send: " + json);
-                            Console.WriteLine();
-                            break;
+                        // Логика объектов
+                        var messageObjectGet = JsonConvert.DeserializeObject<RequestObjectMessage>(json);
 
+                        switch (messageGet.ObjectName)
+                        {
+                            case GeneralConstant.GeneralObjectFromDB.Country:
 
-                        case GeneralConstant.GeneralObjectFromDB.Ship:
-                            Console.WriteLine("Send: " + json);
-                            Console.WriteLine();
-                            break;
+                                dataReader = mySQLConnector.GetDataByIdUseDBFunc("get_country", messageObjectGet.ObjectId.Value);
 
+                                var messageCountrySend = new DBCountryMessage();
 
-                        case GeneralConstant.GeneralObjectFromDB.Commander:
-                            Console.WriteLine("Send: " + json);
-                            Console.WriteLine();
-                            break;
+                                while (dataReader.Read())
+                                {
+                                    messageCountrySend.Name = dataReader.GetString("name");
+                                    messageCountrySend.Description = dataReader.GetString("description");
+                                    messageCountrySend.PicturePath = dataReader.GetString("picturepath");
+                                }
 
+                                dataReader.Close();
+
+                                if (!publishers.TryGetValue(basePartOfMessage.TopicFromServer, out publisher))
+                                {
+                                    break;
+                                }
+
+                                json = messageCountrySend.ToJson();
+
+                                Console.WriteLine("Send: " + json);
+                                Console.WriteLine();
+
+                                publisher.SendMessage(json);
+                                break;
+
+                            case GeneralConstant.GeneralObjectFromDB.Ship:
+                                Console.WriteLine("Send: " + json);
+                                Console.WriteLine();
+                                break;
+
+                            case GeneralConstant.GeneralObjectFromDB.Commander:
+                                Console.WriteLine("Send: " + json);
+                                Console.WriteLine();
+                                break;
+
+                            case GeneralConstant.GeneralObjectFromDB.Map:
+
+                                dataReader = mySQLConnector.GetDataByIdUseDBFunc("get_map", messageObjectGet.ObjectId.Value);
+
+                                var messageMaptSend = new DBMapMessage();
+
+                                while (dataReader.Read())
+                                {
+                                    messageMaptSend.Name = dataReader.GetString("name");
+                                    messageMaptSend.Description = dataReader.GetString("description");
+                                    messageMaptSend.PicturePath = dataReader.GetString("picturepath");
+                                    messageMaptSend.Battletiers = dataReader.GetString("battletiers");
+                                    messageMaptSend.Size = dataReader.GetString("size");
+                                    messageMaptSend.Replyfilename = dataReader.GetString("replyfilename");
+                                }
+
+                                dataReader.Close();
+
+                                if (!publishers.TryGetValue(basePartOfMessage.TopicFromServer, out publisher))
+                                {
+                                    break;
+                                }
+
+                                json = messageMaptSend.ToJson();
+
+                                Console.WriteLine("Send: " + json);
+                                Console.WriteLine();
+
+                                publisher.SendMessage(json);
+                                break;
+
+                            case GeneralConstant.GeneralObjectFromDB.PlayerLevel:
+                                Console.WriteLine("Send: " + json);
+                                Console.WriteLine();
+                                break;
+
+                            case GeneralConstant.GeneralObjectFromDB.Achievement:
+                                Console.WriteLine("Send: " + json);
+                                Console.WriteLine();
+                                break;
+
+                            case GeneralConstant.GeneralObjectFromDB.Container:
+                                Console.WriteLine("Send: " + json);
+                                Console.WriteLine();
+                                break;
+                        }
                     }
 
                     break;

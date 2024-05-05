@@ -18,11 +18,37 @@ namespace ServerConsole
             connection.Close();
         }
 
-        public MySqlDataReader GetDataUseDBFunc(string func)
+        public MySqlDataReader GetAllDataUseDBFunc(string func)
         {
-            using (MySqlCommand command = new MySqlCommand(func, connection))
+            using (var command = new MySqlCommand(func, connection))
             {
                 command.CommandType = CommandType.StoredProcedure; // Устанавливаем тип команды как StoredProcedure
+                MySqlDataReader reader = command.ExecuteReader();
+                return reader;
+            }
+        }
+
+        public MySqlDataReader GetAllDataByCountryIdUseDBFunc(string func, int countryId)
+        {
+            using (var command = new MySqlCommand(func, connection))
+            {
+                command.CommandType = CommandType.StoredProcedure; // Устанавливаем тип команды как StoredProcedure
+
+                command.Parameters.AddWithValue("@country_id", countryId);
+
+                MySqlDataReader reader = command.ExecuteReader();
+                return reader;
+            }
+        }
+
+        public MySqlDataReader GetDataByIdUseDBFunc(string func, int id)
+        {
+            using (var command = new MySqlCommand(func, connection))
+            {
+                command.CommandType = CommandType.StoredProcedure; // Устанавливаем тип команды как StoredProcedure
+
+                command.Parameters.AddWithValue("@object_id", id);
+
                 MySqlDataReader reader = command.ExecuteReader();
                 return reader;
             }

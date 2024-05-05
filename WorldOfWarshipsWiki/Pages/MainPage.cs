@@ -17,14 +17,14 @@ public class MainPage : ContentPage
             Spacing = 10,
         };
 
-        var toCountry = new Button()
+        var toCountries = new Button()
         {
             HorizontalOptions = LayoutOptions.Center,
             VerticalOptions = LayoutOptions.Center,
             Text = "Страны"
         };
-        toCountry.Clicked += ToCountriesOnButtonClicked;
-        verticalStack.Add(toCountry);
+        toCountries.Clicked += ToCountriesOnButtonClicked;
+        verticalStack.Add(toCountries);
 
         var toCountriesShips = new Button()
         {
@@ -83,6 +83,11 @@ public class MainPage : ContentPage
         Content = verticalStack;
     }
 
+    private async void ToCountriesOnButtonClicked(object sender, System.EventArgs e)
+    {
+        await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.Country));
+    }
+
     private async void ToCountriesShipsOnButtonClicked(object sender, System.EventArgs e)
     {
         await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.Ships));
@@ -91,11 +96,6 @@ public class MainPage : ContentPage
     private async void ToCountriesSpecialCommandersOnButtonClicked(object sender, System.EventArgs e)
     {
         await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.Commanders));
-    }
-
-    private async void ToCountriesOnButtonClicked(object sender, System.EventArgs e)
-    {
-        await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.Country));
     }
 
     private async void ToMapsOnButtonClicked(object sender, System.EventArgs e)

@@ -39,6 +39,6 @@ public class CountriesPage : ContentPage
     private async void ToCountryOnButtonClicked(object sender, EventArgs e)
     {
         var id = (int)((Image)sender).BindingContext;
-        await Navigation.PushAsync(new CommandersPage(id));
+        await Navigation.PushAsync(new CountryPage(id));
     }
 }

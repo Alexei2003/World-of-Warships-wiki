@@ -1,6 +1,7 @@
 ﻿using GeneralClasses;
 using GeneralClasses.Data.FromServer.DB;
 using GeneralClasses.Data.ToServer.Request;
+using GeneralClasses.Messages.FromServer.DB.DBObjects;
 using Newtonsoft.Json;
 
 namespace WorldOfWarshipsWiki.Pages
@@ -73,6 +74,7 @@ namespace WorldOfWarshipsWiki.Pages
                 {
                     vObjectStack.Add(new Label()
                     {
+                        HorizontalOptions = LayoutOptions.Center,
                         Text = message.Name,
                     });
                 }
@@ -103,15 +105,18 @@ namespace WorldOfWarshipsWiki.Pages
             return scrollView;
         }
 
-        public static HorizontalStackLayout GetBasePartOfObjectPage(DBBaseDataMessage message, GeneralClasses.GeneralConstant.GeneralObjectFromDB typeObjectShow)
+        public static VerticalStackLayout GetBasePartOfObjectPage(DBObjectMessage message, GeneralConstant.GeneralObjectFromDB typeObjectShow)
         {
-            var hStack = new HorizontalStackLayout();
-
-            var vStack = new VerticalStackLayout();
+            var vStack = new VerticalStackLayout()
+            {
+                Padding = 10,
+                HorizontalOptions = LayoutOptions.Center,
+            };
             if (message.Name != null)
             {
                 vStack.Add(new Label()
                 {
+                    HorizontalOptions = LayoutOptions.Center,
                     Text = message.Name,
                 });
             }
@@ -120,21 +125,22 @@ namespace WorldOfWarshipsWiki.Pages
             {
                 vStack.Add(new Image()
                 {
-                    Source = GetUrlImageFromPath(message.PicturePath, typeObjectShow)
+                    Source = GetUrlImageFromPath(message.PicturePath, typeObjectShow),
+                    WidthRequest = PagesConstants.SIZE_IMAGE_IN_OBJECT_PAGE,
+                    HeightRequest = PagesConstants.SIZE_IMAGE_IN_OBJECT_PAGE,
                 });
             }
 
-            hStack.Add(vStack);
 
             if (message.Description != null)
             {
-                hStack.Add(new Label()
+                vStack.Add(new Label()
                 {
                     Text = message.Description,
                 });
             }
 
-            return hStack;
+            return vStack;
         }
 
         public static string GetUrlImageFromPath(string path, GeneralClasses.GeneralConstant.GeneralObjectFromDB typeObjectShow)
@@ -143,24 +149,31 @@ namespace WorldOfWarshipsWiki.Pages
 
             switch (typeObjectShow)
             {
+                case GeneralConstant.GeneralObjectFromDB.Country:
                 case GeneralConstant.GeneralObjectFromDB.Countries:
                     add = "Countries/";
                     break;
+                case GeneralConstant.GeneralObjectFromDB.Ship:
                 case GeneralConstant.GeneralObjectFromDB.Ships:
                     add = "Ships/";
                     break;
+                case GeneralConstant.GeneralObjectFromDB.Commander:
                 case GeneralConstant.GeneralObjectFromDB.Commanders:
                     add = "Commanders/";
                     break;
+                case GeneralConstant.GeneralObjectFromDB.Map:
                 case GeneralConstant.GeneralObjectFromDB.Maps:
                     add = "Maps/";
                     break;
+                case GeneralConstant.GeneralObjectFromDB.PlayerLevel:
                 case GeneralConstant.GeneralObjectFromDB.PlayerLevels:
                     add = "PlayerLevels/";
                     break;
+                case GeneralConstant.GeneralObjectFromDB.Achievement:
                 case GeneralConstant.GeneralObjectFromDB.Achievements:
                     add = "Achievements/";
                     break;
+                case GeneralConstant.GeneralObjectFromDB.Container:
                 case GeneralConstant.GeneralObjectFromDB.Containers:
                     add = "Containers/";
                     break;
