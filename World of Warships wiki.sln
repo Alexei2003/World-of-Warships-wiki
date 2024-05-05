@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQ", "RabbitMQ\Rabbit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerConsole", "ServerConsole\ServerConsole.csproj", "{23714B55-3B60-4D46-8D2A-A0B749A2ABC6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientConsole", "ClientConsole\ClientConsole.csproj", "{86B7495B-D29F-401C-A935-30C1742268BF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldOfWarshipsWiki", "WorldOfWarshipsWiki\WorldOfWarshipsWiki.csproj", "{EFF0218B-A314-4E04-9D6F-CE1F36110490}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralClasses", "GeneralClasses\GeneralClasses.csproj", "{84AD0611-18AB-4C11-BF20-6D46904295A7}"
@@ -27,10 +25,6 @@ Global
 		{23714B55-3B60-4D46-8D2A-A0B749A2ABC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23714B55-3B60-4D46-8D2A-A0B749A2ABC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23714B55-3B60-4D46-8D2A-A0B749A2ABC6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{86B7495B-D29F-401C-A935-30C1742268BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{86B7495B-D29F-401C-A935-30C1742268BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{86B7495B-D29F-401C-A935-30C1742268BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{86B7495B-D29F-401C-A935-30C1742268BF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EFF0218B-A314-4E04-9D6F-CE1F36110490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EFF0218B-A314-4E04-9D6F-CE1F36110490}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFF0218B-A314-4E04-9D6F-CE1F36110490}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
