@@ -2,7 +2,6 @@
 using GeneralClasses.Data.FromServer.DB;
 using GeneralClasses.Data.ToServer.Request;
 using Newtonsoft.Json;
-using static Microsoft.Maui.ApplicationModel.Permissions;
 
 namespace WorldOfWarshipsWiki.Pages
 {

@@ -4,7 +4,7 @@ namespace WorldOfWarshipsWiki.Pages.PlayerLevels;
 
 public class PlayerLevelsPage : ContentPage
 {
-	public PlayerLevelsPage()
+    public PlayerLevelsPage()
     {
         var imageGestureRecognizer = new TapGestureRecognizer();
         imageGestureRecognizer.Tapped += OnButtonClicked;
