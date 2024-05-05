@@ -2,7 +2,7 @@ namespace WorldOfWarshipsWiki.Pages.PlayerLevels;
 
 public class PlayerLevelPage : ContentPage
 {
-	public PlayerLevelPage()
+	public PlayerLevelPage(int playerLevelId)
 	{
 		Content = new VerticalStackLayout
 		{

@@ -17,6 +17,9 @@ public class CountriesPage : ContentPage
             case GeneralConstant.GeneralObjectFromDB.Commanders:
                 imageGestureRecognizer.Tapped += ToCommandersOnButtonClicked;
                 break;
+            case GeneralConstant.GeneralObjectFromDB.Country:
+                imageGestureRecognizer.Tapped += ToCountryOnButtonClicked;
+                break;
         }
 
         Content = GeneratorPage.GetObjectOfListPage(GeneralConstant.GeneralObjectFromDB.Countries, imageGestureRecognizer);
@@ -24,13 +27,18 @@ public class CountriesPage : ContentPage
 
     private async void ToShipsOnButtonClicked(object sender, EventArgs e)
     {
-        var countryId = (int)((Image)sender).BindingContext;
-        await Navigation.PushAsync(new ShipsPage(countryId));
+        var id = (int)((Image)sender).BindingContext;
+        await Navigation.PushAsync(new ShipsPage(id));
     }
 
     private async void ToCommandersOnButtonClicked(object sender, EventArgs e)
     {
-        var countryId = (int)((Image)sender).BindingContext;
-        await Navigation.PushAsync(new CommandersPage(countryId));
+        var id = (int)((Image)sender).BindingContext;
+        await Navigation.PushAsync(new CommandersPage(id));
+    }
+    private async void ToCountryOnButtonClicked(object sender, EventArgs e)
+    {
+        var id = (int)((Image)sender).BindingContext;
+        await Navigation.PushAsync(new CommandersPage(id));
     }
 }

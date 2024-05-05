@@ -2,7 +2,7 @@ namespace WorldOfWarshipsWiki.Pages.Containers;
 
 public class ContainerPage : ContentPage
 {
-	public ContainerPage()
+	public ContainerPage(int containerId)
 	{
 		Content = new VerticalStackLayout
 		{

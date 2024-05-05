@@ -1,4 +1,8 @@
+using WorldOfWarshipsWiki.Pages.Achievements;
+using WorldOfWarshipsWiki.Pages.Containers;
 using WorldOfWarshipsWiki.Pages.Countries;
+using WorldOfWarshipsWiki.Pages.Maps;
+using WorldOfWarshipsWiki.Pages.PlayerLevels;
 
 namespace WorldOfWarshipsWiki.Pages;
 
@@ -96,21 +100,21 @@ public class MainPage : ContentPage
 
     private async void ToMapsOnButtonClicked(object sender, System.EventArgs e)
     {
-        //await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.Country));
+        await Navigation.PushAsync(new MapsPage());
     }
 
     private async void ToPlayerLevelsOnButtonClicked(object sender, System.EventArgs e)
     {
-        //await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.Country));
+        await Navigation.PushAsync(new PlayerLevelsPage());
     }
 
     private async void ToAchievementsOnButtonClicked(object sender, System.EventArgs e)
     {
-        //await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.Country));
+        await Navigation.PushAsync(new AchievementsPage());
     }
 
     private async void ToContainersOnButtonClicked(object sender, System.EventArgs e)
     {
-        //await Navigation.PushAsync(new CountriesPage(GeneralClasses.GeneralConstant.GeneralObjectFromDB.Country));
+        await Navigation.PushAsync(new ContainersPage());
     }
 }

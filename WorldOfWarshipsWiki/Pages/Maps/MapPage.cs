@@ -2,7 +2,7 @@ namespace WorldOfWarshipsWiki.Pages.Maps;
 
 public class MapPage : ContentPage
 {
-	public MapPage()
+	public MapPage(int mapId)
 	{
 		Content = new VerticalStackLayout
 		{

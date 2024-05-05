@@ -1,15 +1,19 @@
+using GeneralClasses;
+
 namespace WorldOfWarshipsWiki.Pages.Achievements;
 
 public class AchievementsPage : ContentPage
 {
-	public AchievementsPage()
-	{
-		Content = new VerticalStackLayout
-		{
-			Children = {
-				new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Text = "Welcome to .NET MAUI!"
-				}
-			}
-		};
-	}
+    public AchievementsPage()
+    {
+        var imageGestureRecognizer = new TapGestureRecognizer();
+        imageGestureRecognizer.Tapped += OnButtonClicked;
+        Content = GeneratorPage.GetObjectOfListPage(GeneralConstant.GeneralObjectFromDB.Achievements, imageGestureRecognizer);
+    }
+
+    private async void OnButtonClicked(object sender, EventArgs e)
+    {
+        var id = (int)((Image)sender).BindingContext;
+        await Navigation.PushAsync(new AchievementPage(id));
+    }
 }

@@ -13,7 +13,7 @@ public class ShipsPage : ContentPage
 
     private async void ToShipOnButtonClicked(object sender, EventArgs e)
     {
-        var shipId = (int)((Image)sender).BindingContext;
-        await Navigation.PushAsync(new ShipPage(shipId));
+        var id = (int)((Image)sender).BindingContext;
+        await Navigation.PushAsync(new ShipPage(id));
     }
 }

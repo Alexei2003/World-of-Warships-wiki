@@ -2,7 +2,7 @@ namespace WorldOfWarshipsWiki.Pages.Achievements;
 
 public class AchievementPage : ContentPage
 {
-	public AchievementPage()
+	public AchievementPage(int achievementId)
 	{
 		Content = new VerticalStackLayout
 		{

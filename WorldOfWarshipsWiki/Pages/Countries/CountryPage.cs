@@ -2,7 +2,7 @@ namespace WorldOfWarshipsWiki.Pages.Countries;
 
 public class CountryPage : ContentPage
 {
-    public CountryPage()
+    public CountryPage(int countryId)
     {
         Content = new VerticalStackLayout
         {
