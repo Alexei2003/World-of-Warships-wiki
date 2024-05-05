@@ -63,22 +63,22 @@ internal class ProgramServer
                             dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
                             break;
                         case GeneralConstant.GeneralObjectFromDB.Ships:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_ships");
                             break;
                         case GeneralConstant.GeneralObjectFromDB.Commanders:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_commanders");
                             break;
                         case GeneralConstant.GeneralObjectFromDB.Maps:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_maps");
                             break;
                         case GeneralConstant.GeneralObjectFromDB.PlayerLevels:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_player_levels");
                             break;
                         case GeneralConstant.GeneralObjectFromDB.Achievements:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_achievements");
                             break;
                         case GeneralConstant.GeneralObjectFromDB.Containers:
-                            dataReader = mySQLConnector.GetDataUseDBFunc("get_countries");
+                            dataReader = mySQLConnector.GetDataUseDBFunc("get_containers");
                             break;
 
                         default:
