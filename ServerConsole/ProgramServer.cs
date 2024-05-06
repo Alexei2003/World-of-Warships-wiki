@@ -8,6 +8,7 @@ using MySqlConnector;
 using Newtonsoft.Json;
 using RabbitMQ;
 using ServerConsole;
+using System.Data;
 
 internal class ProgramServer
 {
@@ -196,8 +197,33 @@ internal class ProgramServer
                                 break;
 
                             case GeneralConstant.GeneralObjectFromDB.PlayerLevel:
+
+                                dataReader = mySQLConnector.GetDataByIdUseDBFunc("get_player_level", messageObjectGet.ObjectId.Value);
+
+                                var messagePlayerLevelSend = new DBPlayerLevelMessage();
+
+                                while (dataReader.Read())
+                                {
+                                    messagePlayerLevelSend.Name = dataReader.GetString("name");
+                                    messagePlayerLevelSend.Description = dataReader.GetString("description");
+                                    messagePlayerLevelSend.PicturePath = dataReader.GetString("picturepath");
+                                    messagePlayerLevelSend.BattleNeed = dataReader.GetInt32("battleneed");
+                                    messagePlayerLevelSend.BattleTotal = dataReader.GetInt32("battletotal");
+                                }
+
+                                dataReader.Close();
+
+                                if (!publishers.TryGetValue(basePartOfMessage.TopicFromServer, out publisher))
+                                {
+                                    break;
+                                }
+
+                                json = messagePlayerLevelSend.ToJson();
+
                                 Console.WriteLine("Send: " + json);
                                 Console.WriteLine();
+
+                                publisher.SendMessage(json);
                                 break;
 
                             case GeneralConstant.GeneralObjectFromDB.Achievement:

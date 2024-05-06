@@ -30,7 +30,7 @@ public class MainPage : ContentPage
         {
             HorizontalOptions = LayoutOptions.Center,
             VerticalOptions = LayoutOptions.Center,
-            Text = "Коробли"
+            Text = "Корабли"
         };
         toCountriesShips.Clicked += ToCountriesShipsOnButtonClicked;
         verticalStack.Add(toCountriesShips);

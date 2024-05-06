@@ -50,6 +50,11 @@ public class MapPage : ContentPage
         };
         vStack.Add(replyfilename);
 
-        Content = vStack;
+        var scrollView = new ScrollView
+        {
+            Content = vStack
+        };
+
+        Content = scrollView;
     }
 }

@@ -36,7 +36,7 @@ namespace WorldOfWarshipsWiki.Pages
                     namePageText = "Список стран";
                     break;
                 case GeneralConstant.GeneralObjectFromDB.Ships:
-                    namePageText = "Список короблей";
+                    namePageText = "Список кораблей";
                     break;
                 case GeneralConstant.GeneralObjectFromDB.Commanders:
                     namePageText = "Список уникальных командиров";
@@ -179,6 +179,7 @@ namespace WorldOfWarshipsWiki.Pages
                     break;
             }
 
+            var a = "http://" + GeneralConstant.SERVER_IP + "/WorldOfWarships/Images/" + add + path;
             return "http://" + GeneralConstant.SERVER_IP + "/WorldOfWarships/Images/" + add + path;
         }
 

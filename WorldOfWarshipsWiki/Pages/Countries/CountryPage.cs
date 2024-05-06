@@ -73,6 +73,13 @@ public class CountryPage : ContentPage
 
         var message = JsonConvert.DeserializeObject<DBCountryMessage>(json);
 
-        Content = GeneratorPage.GetBasePartOfObjectPage(message, GeneralConstant.GeneralObjectFromDB.Country);
+        var vStack = GeneratorPage.GetBasePartOfObjectPage(message, GeneralConstant.GeneralObjectFromDB.Country);
+
+        var scrollView = new ScrollView
+        {
+            Content = vStack
+        };
+
+        Content = scrollView;
     }
 }
