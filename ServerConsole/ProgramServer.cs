@@ -161,8 +161,48 @@ internal class ProgramServer
                                 break;
 
                             case GeneralConstant.GeneralObjectFromDB.Commander:
+                                dataReader = mySQLConnector.GetDataByIdUseDBFunc("get_commander", messageObjectGet.ObjectId.Value);
+
+                                var messageCommanderSend = new DBCommanderMessage();
+
+                                if (dataReader.Read())
+                                {
+                                    messageCommanderSend.Name = dataReader.GetString("special_commanders_name");
+                                    messageCommanderSend.Description = dataReader.GetString("special_commanders_description");
+                                    messageCommanderSend.PicturePath = dataReader.GetString("special_commanders_picturepath");
+                                    messageCommanderSend.Origins = dataReader.GetString("special_commanders_origins");
+
+                                    var talent = new DBCommanderMessage.DBTalent();
+                                    talent.Name = dataReader.GetString("talents_name");
+                                    talent.Description = dataReader.GetString("talents_description");
+                                    talent.PicturePath = dataReader.GetString("talents_picturepath");
+
+                                    messageCommanderSend.TalentList.Add(talent);
+                                }
+
+                                while (dataReader.Read())
+                                {
+                                    var talent = new DBCommanderMessage.DBTalent();
+                                    talent.Name = dataReader.GetString("talents_name");
+                                    talent.Description = dataReader.GetString("talents_description");
+                                    talent.PicturePath = dataReader.GetString("talents_picturepath");
+
+                                    messageCommanderSend.TalentList.Add(talent);
+                                }
+
+                                dataReader.Close();
+
+                                if (!publishers.TryGetValue(basePartOfMessage.TopicFromServer, out publisher))
+                                {
+                                    break;
+                                }
+
+                                json = messageCommanderSend.ToJson();
+
                                 Console.WriteLine("Send: " + json);
                                 Console.WriteLine();
+
+                                publisher.SendMessage(json);
                                 break;
 
                             case GeneralConstant.GeneralObjectFromDB.Map:
@@ -265,7 +305,7 @@ internal class ProgramServer
                                     messageContainerSend.Description = dataReader.GetString("container_description");
                                     messageContainerSend.PicturePath = dataReader.GetString("container_picturepath");
 
-                                    var itemFromContainer = new DBContainerMessage.DBItemFromContainer();
+                                    var itemFromContainer = new DBContainerMessage.DBItem();
                                     itemFromContainer.LootChance = dataReader.GetInt32("loot_chance");
                                     itemFromContainer.ItemName = dataReader.GetString("item_name");
                                     itemFromContainer.TypeItemName = dataReader.GetString("type_item_name");
@@ -275,7 +315,7 @@ internal class ProgramServer
 
                                 while (dataReader.Read())
                                 {
-                                    var itemFromContainer = new DBContainerMessage.DBItemFromContainer();
+                                    var itemFromContainer = new DBContainerMessage.DBItem();
                                     itemFromContainer.LootChance = dataReader.GetInt32("loot_chance");
                                     itemFromContainer.ItemName = dataReader.GetString("item_name");
                                     itemFromContainer.TypeItemName = dataReader.GetString("type_item_name");
