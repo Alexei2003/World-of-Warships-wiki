@@ -63,7 +63,7 @@ namespace WorldOfWarshipsWiki.Pages
             };
             vStack.Add(namePage);
 
-            foreach (var message in messageList.List)
+            foreach (var message in messageList.ItemList)
             {
                 var vObjectStack = new VerticalStackLayout()
                 {

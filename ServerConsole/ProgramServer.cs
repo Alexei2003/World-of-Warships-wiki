@@ -95,7 +95,7 @@ internal class ProgramServer
 
                         while (dataReader.Read())
                         {
-                            messageListSend.List.Add(new DBObjectOfList()
+                            messageListSend.ItemList.Add(new DBListMessage.DBObjectFromList()
                             {
                                 Id = dataReader.GetInt32("id"),
                                 Name = dataReader.GetString("name"),
@@ -169,16 +169,16 @@ internal class ProgramServer
 
                                 dataReader = mySQLConnector.GetDataByIdUseDBFunc("get_map", messageObjectGet.ObjectId.Value);
 
-                                var messageMaptSend = new DBMapMessage();
+                                var messageMapSend = new DBMapMessage();
 
                                 while (dataReader.Read())
                                 {
-                                    messageMaptSend.Name = dataReader.GetString("name");
-                                    messageMaptSend.Description = dataReader.GetString("description");
-                                    messageMaptSend.PicturePath = dataReader.GetString("picturepath");
-                                    messageMaptSend.Battletiers = dataReader.GetString("battletiers");
-                                    messageMaptSend.Size = dataReader.GetString("size");
-                                    messageMaptSend.Replyfilename = dataReader.GetString("replyfilename");
+                                    messageMapSend.Name = dataReader.GetString("name");
+                                    messageMapSend.Description = dataReader.GetString("description");
+                                    messageMapSend.PicturePath = dataReader.GetString("picturepath");
+                                    messageMapSend.Battletiers = dataReader.GetString("battletiers");
+                                    messageMapSend.Size = dataReader.GetString("size");
+                                    messageMapSend.Replyfilename = dataReader.GetString("replyfilename");
                                 }
 
                                 dataReader.Close();
@@ -188,7 +188,7 @@ internal class ProgramServer
                                     break;
                                 }
 
-                                json = messageMaptSend.ToJson();
+                                json = messageMapSend.ToJson();
 
                                 Console.WriteLine("Send: " + json);
                                 Console.WriteLine();
@@ -255,8 +255,47 @@ internal class ProgramServer
                                 break;
 
                             case GeneralConstant.GeneralObjectFromDB.Container:
+                                dataReader = mySQLConnector.GetDataByIdUseDBFunc("get_container", messageObjectGet.ObjectId.Value);
+
+                                var messageContainerSend = new DBContainerMessage();
+
+                                if (dataReader.Read())
+                                {
+                                    messageContainerSend.Name = dataReader.GetString("container_name");
+                                    messageContainerSend.Description = dataReader.GetString("container_description");
+                                    messageContainerSend.PicturePath = dataReader.GetString("container_picturepath");
+
+                                    var itemFromContainer = new DBContainerMessage.DBItemFromContainer();
+                                    itemFromContainer.LootChance = dataReader.GetInt32("loot_chance");
+                                    itemFromContainer.ItemName = dataReader.GetString("item_name");
+                                    itemFromContainer.TypeItemName = dataReader.GetString("type_item_name");
+
+                                    messageContainerSend.LootList.Add(itemFromContainer);
+                                }
+
+                                while (dataReader.Read())
+                                {
+                                    var itemFromContainer = new DBContainerMessage.DBItemFromContainer();
+                                    itemFromContainer.LootChance = dataReader.GetInt32("loot_chance");
+                                    itemFromContainer.ItemName = dataReader.GetString("item_name");
+                                    itemFromContainer.TypeItemName = dataReader.GetString("type_item_name");
+
+                                    messageContainerSend.LootList.Add(itemFromContainer);
+                                }
+
+                                dataReader.Close();
+
+                                if (!publishers.TryGetValue(basePartOfMessage.TopicFromServer, out publisher))
+                                {
+                                    break;
+                                }
+
+                                json = messageContainerSend.ToJson();
+
                                 Console.WriteLine("Send: " + json);
                                 Console.WriteLine();
+
+                                publisher.SendMessage(json);
                                 break;
                         }
                     }
