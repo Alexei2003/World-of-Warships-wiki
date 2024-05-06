@@ -227,8 +227,31 @@ internal class ProgramServer
                                 break;
 
                             case GeneralConstant.GeneralObjectFromDB.Achievement:
+                                dataReader = mySQLConnector.GetDataByIdUseDBFunc("get_achievement", messageObjectGet.ObjectId.Value);
+
+                                var messageAchievementSend = new DBAchievementMessage();
+
+                                while (dataReader.Read())
+                                {
+                                    messageAchievementSend.Name = dataReader.GetString("achievement_name");
+                                    messageAchievementSend.Description = dataReader.GetString("description");
+                                    messageAchievementSend.PicturePath = dataReader.GetString("picturepath");
+                                    messageAchievementSend.TypeAchievementName = dataReader.GetString("type_achievement_name");
+                                }
+
+                                dataReader.Close();
+
+                                if (!publishers.TryGetValue(basePartOfMessage.TopicFromServer, out publisher))
+                                {
+                                    break;
+                                }
+
+                                json = messageAchievementSend.ToJson();
+
                                 Console.WriteLine("Send: " + json);
                                 Console.WriteLine();
+
+                                publisher.SendMessage(json);
                                 break;
 
                             case GeneralConstant.GeneralObjectFromDB.Container:
