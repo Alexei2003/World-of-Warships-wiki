@@ -173,21 +173,27 @@ internal class ProgramServer
                                     messageCommanderSend.Origins = dataReader.GetString("special_commanders_origins");
 
                                     var talent = new DBCommanderMessage.DBTalent();
-                                    talent.Name = dataReader.GetString("talents_name");
-                                    talent.Description = dataReader.GetString("talents_description");
-                                    talent.PicturePath = dataReader.GetString("talents_picturepath");
+                                    talent.Name = dataReader.IsDBNull(dataReader.GetOrdinal("talents_name")) ? null : dataReader.GetString("talents_name");
+                                    talent.Description = dataReader.IsDBNull(dataReader.GetOrdinal("talents_description")) ? null : dataReader.GetString("talents_description");
+                                    talent.PicturePath = dataReader.IsDBNull(dataReader.GetOrdinal("talents_picturepath")) ? null : dataReader.GetString("talents_picturepath");
 
-                                    messageCommanderSend.TalentList.Add(talent);
+                                    if(talent.Name != null)
+                                    {
+                                        messageCommanderSend.TalentList.Add(talent);
+                                    }
                                 }
 
                                 while (dataReader.Read())
                                 {
                                     var talent = new DBCommanderMessage.DBTalent();
-                                    talent.Name = dataReader.GetString("talents_name");
-                                    talent.Description = dataReader.GetString("talents_description");
-                                    talent.PicturePath = dataReader.GetString("talents_picturepath");
+                                    talent.Name = dataReader.IsDBNull(dataReader.GetOrdinal("talents_name")) ? null : dataReader.GetString("talents_name");
+                                    talent.Description = dataReader.IsDBNull(dataReader.GetOrdinal("talents_description")) ? null : dataReader.GetString("talents_description");
+                                    talent.PicturePath = dataReader.IsDBNull(dataReader.GetOrdinal("talents_picturepath")) ? null : dataReader.GetString("talents_picturepath");
 
-                                    messageCommanderSend.TalentList.Add(talent);
+                                    if (talent.Name != null)
+                                    {
+                                        messageCommanderSend.TalentList.Add(talent);
+                                    }
                                 }
 
                                 dataReader.Close();

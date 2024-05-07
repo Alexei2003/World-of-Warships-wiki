@@ -35,11 +35,14 @@ public class CommanderPage : ContentPage
 
         vStack.Add(new Label());
 
-        var talents = new Label()
+        if(message.TalentList.Count > 0)
         {
-            Text = "Список талантов " + message.Name,
-        };
-        vStack.Add(talents);
+            var talents = new Label()
+            {
+                Text = "Список талантов " + message.Name,
+            };
+            vStack.Add(talents);
+        }
 
         foreach (var talent in message.TalentList)
         {
