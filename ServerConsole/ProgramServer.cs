@@ -156,8 +156,73 @@ internal class ProgramServer
                                 break;
 
                             case GeneralConstant.GeneralObjectFromDB.Ship:
+                                dataReader = mySQLConnector.GetDataByIdUseDBFunc("get_ship", messageObjectGet.ObjectId.Value);
+
+                                var messageShipSend = new DBShipMessage();
+
+                                if (dataReader.Read())
+                                {
+                                    messageShipSend.Name = dataReader.GetString("ship_name");
+                                    messageShipSend.Description = dataReader.GetString("ship_description");
+                                    messageShipSend.PicturePath = dataReader.GetString("ship_picturepath");
+
+                                    messageShipSend.Level = dataReader.IsDBNull(dataReader.GetOrdinal("ship_level")) ? 0 : dataReader.GetInt32("ship_level");
+                                    messageShipSend.Survivability = dataReader.IsDBNull(dataReader.GetOrdinal("ship_survivability")) ? 0 : dataReader.GetInt32("ship_survivability");
+                                    messageShipSend.Aircraft = dataReader.IsDBNull(dataReader.GetOrdinal("ship_aircraft")) ? 0 : dataReader.GetInt32("ship_aircraft");
+                                    messageShipSend.Artillery = dataReader.IsDBNull(dataReader.GetOrdinal("ship_artillery")) ? 0 : dataReader.GetInt32("ship_artillery");
+                                    messageShipSend.Torpedoes = dataReader.IsDBNull(dataReader.GetOrdinal("ship_torpedoes")) ? 0 : dataReader.GetInt32("ship_torpedoes");
+                                    messageShipSend.Airdefense = dataReader.IsDBNull(dataReader.GetOrdinal("ship_airdefense")) ? 0 : dataReader.GetInt32("ship_airdefense");
+                                    messageShipSend.Maneuverability = dataReader.IsDBNull(dataReader.GetOrdinal("ship_maneuverability")) ? 0 : dataReader.GetInt32("ship_maneuverability");
+                                    messageShipSend.Concealment = dataReader.IsDBNull(dataReader.GetOrdinal("ship_concealment")) ? 0 : dataReader.GetInt32("ship_concealment");
+                                    messageShipSend.PriceMoney = dataReader.IsDBNull(dataReader.GetOrdinal("ship_pricemoney")) ? 0 : dataReader.GetInt32("ship_pricemoney");
+                                    messageShipSend.PriceExp = dataReader.IsDBNull(dataReader.GetOrdinal("ship_priceexp")) ? 0 : dataReader.GetInt32("ship_priceexp");
+
+
+                                    messageShipSend.ShipClassName = dataReader.GetString("ship_class_name");
+                                    messageShipSend.ShipClassPicturePath = dataReader.GetString("ship_class_picturepath");
+
+                                    var modulesFromShip = new DBShipMessage.DBModules();
+                                    modulesFromShip.Name = dataReader.IsDBNull(dataReader.GetOrdinal("modules_name")) ? null : dataReader.GetString("modules_name");
+                                    modulesFromShip.Description = dataReader.IsDBNull(dataReader.GetOrdinal("modules_description")) ? null : dataReader.GetString("modules_description");
+                                    modulesFromShip.PicturePath = dataReader.IsDBNull(dataReader.GetOrdinal("modules_picturepath")) ? null : dataReader.GetString("modules_picturepath");
+                                    modulesFromShip.PriceMoney = dataReader.IsDBNull(dataReader.GetOrdinal("modules_pricemoney")) ? 0 : dataReader.GetInt32("modules_pricemoney");
+                                    modulesFromShip.PriceExp = dataReader.IsDBNull(dataReader.GetOrdinal("modules_priceexp")) ? 0 : dataReader.GetInt32("modules_priceexp");
+
+                                    if(modulesFromShip.Name != null)
+                                    {
+                                        messageShipSend.ModulesList.Add(modulesFromShip);
+                                    }
+
+                                }
+
+                                while (dataReader.Read())
+                                {
+                                    var modulesFromShip = new DBShipMessage.DBModules();
+                                    modulesFromShip.Name = dataReader.IsDBNull(dataReader.GetOrdinal("modules_name")) ? null : dataReader.GetString("modules_name");
+                                    modulesFromShip.Description = dataReader.IsDBNull(dataReader.GetOrdinal("modules_description")) ? null : dataReader.GetString("modules_description");
+                                    modulesFromShip.PicturePath = dataReader.IsDBNull(dataReader.GetOrdinal("modules_picturepath")) ? null : dataReader.GetString("modules_picturepath");
+                                    modulesFromShip.PriceMoney = dataReader.IsDBNull(dataReader.GetOrdinal("modules_pricemoney")) ? 0 : dataReader.GetInt32("modules_pricemoney");
+                                    modulesFromShip.PriceExp = dataReader.IsDBNull(dataReader.GetOrdinal("modules_priceexp")) ? 0 : dataReader.GetInt32("modules_priceexp");
+
+                                    if (modulesFromShip.Name != null)
+                                    {
+                                        messageShipSend.ModulesList.Add(modulesFromShip);
+                                    }
+                                }
+
+                                dataReader.Close();
+
+                                if (!publishers.TryGetValue(basePartOfMessage.TopicFromServer, out publisher))
+                                {
+                                    break;
+                                }
+
+                                json = messageShipSend.ToJson();
+
                                 Console.WriteLine("Send: " + json);
                                 Console.WriteLine();
+
+                                publisher.SendMessage(json);
                                 break;
 
                             case GeneralConstant.GeneralObjectFromDB.Commander:
